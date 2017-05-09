@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>思维导图</title>
+  <link href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/common.min.css">
+</head>
+<body>
+  <header>
+    <div class="head_box">
+      <h1><a href="" id="logo_icon">logo</a></h1>
+    </div> 
+  </header>
+  <aside id="main_menu">
+    <div class="tab-head col-xs-3">
+      <div id="close_menu"><sapn class="fa fa-arrow-circle-o-left"></sapn></div>
+      <ul>
+        <li><a href="#">新建</a></li>
+        <li><a href="#" id="open"  data-toggle="modal" data-target="#open_dialog">打开</a></li>
+        <li><a href="#" id="save" data-toggle="modal" data-target="#save_dialog">另存为</a></li>
+        <li><a href="#">帮助</a></li>
+        <li><a href="#">反馈</a></li>
+      </ul>
+    </div>
+    <div class="tab-body col-xs-9"></div>
+  </aside>
+  <nav>
+    <ul class="nav_box af">
+      <li class="dropdown">
+        <span class="dropdown-toggle" data-toggle="dropdown">文件
+        </span>
+        <ul class="dropdown-menu">
+          <li><a href="#">打开</a></li>
+          <li><a href="#">另存为</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <span class="dropdown-toggle" data-toggle="dropdown">主题
+        </span>
+        <ul class="dropdown-menu">
+          <li><a href="#">主题一</a></li>
+          <li><a href="#">主题二</a></li>
+          <li><a href="#">主题三</a></li>
+        </ul>
+      </li>
+      <li>帮助</li>
+    </ul>
+  </nav>
+
+  <div class="toolbar">
+  
+  </div>
+  <section>
+     <div id="jsmind_container"></div>
+  </section> 
+  <!-- 保存弹出框 -->
+  <div id="save_dialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">保存文件...</h4>
+        </div>
+        <div class="modal-body">
+          <h3 class="option">
+            <span class="option_icon fa fa-square-o"></span>
+            <p>保存为图片</p>
+          </h3>
+          <h3 class="option">
+            <span class="option_icon fa fa-square-o"></span>
+            <p>保存为jm</p>
+          </h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button id="save_confirm" type="button" class="btn btn-primary">确定</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- 保存弹出框 -->
+  <!-- 打开弹出框 -->
+  <div id="open_dialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">打开文件...</h4>
+        </div>
+        <div class="modal-body">
+          <input type="file" id="toOpenFile">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button id="open_confirm" type="button" class="btn btn-primary">确定</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- 打开弹出框 -->
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="./js/base.min.js"></script>
+</body>
+</html>
