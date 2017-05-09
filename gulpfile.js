@@ -30,12 +30,11 @@ var config ={
 
 //js 合并 压缩
 gulp.task("dealJs",function(){
-  // gulp.src(config._src.minJs)
-  //   .pipe(gulp.dest("dist/js/"))
-  //   .pipe(connect.reload());
+  gulp.src(config._src.minJs)
+    .pipe(gulp.dest("dist/js/"))
 
   gulp.src(config._src.js)
-    .pipe(concat("base.js"))
+    // .pipe(concat("base.js"))
     .pipe(uglify())
     .pipe(rename(function(path){
       path.basename += ".min"
@@ -51,7 +50,7 @@ gulp.task("dealJs",function(){
 //css 合并 压缩
 .task("dealCss",function(){
   gulp.src(config._src.css)
-    .pipe(concat("common.css"))
+    // .pipe(concat("common.css"))
     .pipe(minCss())
     .pipe(rename(function(path){
       path.basename += ".min"
