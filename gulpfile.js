@@ -16,9 +16,10 @@ var config ={
         js:["src/js/*.js","!src/js/*.min.js"],
         minJs:"src/js/*.min.js",
         css:["src/css/*.css","!src/css/*.min.css"],
+        minCss:"src/css/*.min.css",
         less:"src/css/*.less",
         images:["src/images/*.*","!src/images/*.psd"],
-        html:"src/*.html"
+        html:["src/*.html","!src/index.html"]
        },
   _task:[ "dealPic",
           "dealJs",
@@ -49,6 +50,8 @@ gulp.task("dealJs",function(){
 })
 //css 合并 压缩
 .task("dealCss",function(){
+  gulp.src(config._src.minCss)
+    .pipe(gulp.dest("dist/css/"))
   gulp.src(config._src.css)
     // .pipe(concat("common.css"))
     .pipe(minCss())

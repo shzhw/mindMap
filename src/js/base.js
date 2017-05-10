@@ -81,7 +81,14 @@ $(function($){
     })
      //打开jm文件
     .on("click","#open_confirm",function(){
-      open_file(jm);
+      var files = $("#toOpenFile")[0].files;
+      if(files.length > 0){
+        var file_data = files[0];
+        open_file(jm,file_data);
+      }else{
+        alert("请选择打开的目标文件")
+      }
+      $(this).parents(".modal").find(".close").click();
     })
     //主菜单 保存 弹出
     .on("click",".option",function(){
@@ -130,20 +137,28 @@ function getSelectResult(elems,className){
   return result
 }
 
-function open_file(jm){
-  var file_input = $("#toOpenFile")[0];
-  var files = file_input.files;
-  if(files.length > 0){
-      var file_data = files[0];
-      jsMind.util.file.read(file_data,function(jsmind_data, jsmind_name){
-          var mind = jsMind.util.json.string2json(jsmind_data);
-          if(!!mind){
-              jm.show(mind);
-          }else{
-              alert('can not open this file as mindmap');
-          }
-      });
-  }else{
-      alert('please choose a file first')
-  }
+function open_file(jm,fileData){
+  // var file_input = $("#toOpenFile")[0];
+  // var files = file_input.files;
+  // if(files.length > 0){
+  //     var file_data = files[0];
+  //     jsMind.util.file.read(file_data,function(jsmind_data, jsmind_name){
+  //         var mind = jsMind.util.json.string2json(jsmind_data);
+  //         if(!!mind){
+  //             jm.show(mind);
+  //         }else{
+  //             alert('can not open this file as mindmap');
+  //         }
+  //     });
+  // }else{
+  //     alert('please choose a file first')
+  // }
+  jsMind.util.file.read(fileData,function(jsmind_data, jsmind_name){
+    var mind = jsMind.util.json.string2json(jsmind_data);
+    if(!!mind){
+        jm.show(mind);
+    }else{
+        alert('can not open this file as mindmap');
+    }
+});
 }
