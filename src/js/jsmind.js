@@ -2188,14 +2188,16 @@
             this.e_panel = $c('div');
             this.e_canvas = $c('canvas');
             this.e_nodes = $c('jmnodes');
-            this.e_editor = $c('input');
+            this.e_editor = $c('textarea');
 
             this.e_panel.className = 'jsmind-inner';
             this.e_panel.appendChild(this.e_canvas);
             this.e_panel.appendChild(this.e_nodes);
 
             this.e_editor.className = 'jsmind-editor';
-            this.e_editor.type = 'text';
+            this.e_editor.rows = '1';
+            this.e_editor.style.overflow = "hidden";
+            this.e_editor.style.resize = "none";
 
             this.actualZoom = 1;
             this.zoomStep = 0.1;
@@ -2753,7 +2755,7 @@
             var selected_node = _jm.get_selected_node();
             if(!!selected_node){
                 var nodeid = jm.util.uuid.newid();
-                var node = _jm.add_node(selected_node, nodeid, 'New Node');
+                var node = _jm.add_node(selected_node, nodeid, '子主题');
                 if(!!node){
                     _jm.select_node(nodeid);
                     _jm.begin_edit(nodeid);
@@ -2764,7 +2766,7 @@
             var selected_node = _jm.get_selected_node();
             if(!!selected_node && !selected_node.isroot){
                 var nodeid = jm.util.uuid.newid();
-                var node = _jm.insert_node_after(selected_node, nodeid, 'New Node');
+                var node = _jm.insert_node_after(selected_node, nodeid, '子主题');
                 if(!!node){
                     _jm.select_node(nodeid);
                     _jm.begin_edit(nodeid);

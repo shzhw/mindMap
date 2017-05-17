@@ -109,3 +109,13 @@ section{
   overflow:hidden;
   z-index:10;
 }
+/*覆盖jsmind.css*/
+.jsmind-inner{
+  overflow:visible;
+}
+#jsmind_container jmnode{
+  max-width:none;
+}
+pre{
+  font-family: inherit;
+}
